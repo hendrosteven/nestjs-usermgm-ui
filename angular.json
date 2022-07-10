@@ -24,9 +24,15 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css",
+              "node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.min.js",
+              "node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js" 
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "user-frontend"
+    }
+  },
+  "defaultProject": "user-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
