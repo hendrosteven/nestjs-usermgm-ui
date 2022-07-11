@@ -14,6 +14,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { AuthGuard } from './auth-guard';
 import { EditNameComponent } from './pages/edit-name/edit-name.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { VerifyComponent } from './pages/verify/verify.component';
+import { ResendComponent } from './pages/resend/resend.component';
 
 export const AppRoutes: any = [
   {
@@ -33,6 +35,14 @@ export const AppRoutes: any = [
   {
     path: "register",
     component: RegisterComponent
+  },
+  {
+    path: "verify",
+    component: VerifyComponent
+  },
+  {
+    path: "resend",
+    component: ResendComponent
   }
 ];
 
@@ -44,7 +54,9 @@ export const AppRoutes: any = [
     RegisterComponent,
     HomeComponent,
     EditNameComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    VerifyComponent,
+    ResendComponent
   ],
   imports: [
     BrowserModule,

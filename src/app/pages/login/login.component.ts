@@ -48,5 +48,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['reset']);
   }
 
+  goToResend(){
+    this.router.navigate(['resend']);
+  }
+
 
 }
