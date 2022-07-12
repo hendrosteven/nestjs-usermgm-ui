@@ -26,6 +26,10 @@ export class MainComponent implements OnInit {
       const uuid = this.mainService.uuid();
       this.mainService.createSession(uuid).subscribe((result) => {
         sessionStorage.setItem("SESSIONID", uuid);
+      },(errors)=>{
+        if(errors.code == 401){
+          this.router.navigate(['login']);
+        }
       });
     }
     this.router.navigate(['statistics']);
