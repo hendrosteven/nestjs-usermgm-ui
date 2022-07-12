@@ -16,6 +16,7 @@ import { EditNameComponent } from './pages/edit-name/edit-name.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { VerifyComponent } from './pages/verify/verify.component';
 import { ResendComponent } from './pages/resend/resend.component';
+import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 export const AppRoutes: any = [
   {
@@ -25,7 +26,8 @@ export const AppRoutes: any = [
     children: [
       { path: "home", component: HomeComponent },
       { path: "edit-name", component: EditNameComponent },
-      { path: "change-password", component: ChangePasswordComponent}
+      { path: "change-password", component: ChangePasswordComponent},
+      { path: "statistics", component: StatisticsComponent}
     ]
   },
   {
@@ -56,7 +58,8 @@ export const AppRoutes: any = [
     EditNameComponent,
     ChangePasswordComponent,
     VerifyComponent,
-    ResendComponent
+    ResendComponent,
+    StatisticsComponent
   ],
   imports: [
     BrowserModule,

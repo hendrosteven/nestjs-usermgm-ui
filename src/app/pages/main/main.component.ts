@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../login/login.service';
+import { MainService } from './main.service';
 
 @Component({
   selector: 'app-main',
@@ -12,7 +13,7 @@ export class MainComponent implements OnInit {
 
   currentDateTime = null;
 
-  constructor(private router: Router, private loginService: LoginService) {
+  constructor(private router: Router, private loginService: LoginService, private mainService: MainService) {
 
     setInterval(() => {
       this.currentDateTime = Date.now();
@@ -21,7 +22,13 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.navigate(['home']);
+    if (!sessionStorage.getItem("SESSIONID")) {
+      const uuid = this.mainService.uuid();
+      this.mainService.createSession(uuid).subscribe((result) => {
+        sessionStorage.setItem("SESSIONID", uuid);
+      });
+    }
+    this.router.navigate(['statistics']);
   }
 
   onLogoutClick() {
@@ -32,11 +39,11 @@ export class MainComponent implements OnInit {
     });
   }
 
-  goToEditName(){
+  goToEditName() {
     this.router.navigate(['edit-name']);
   }
 
-  goToChangePassword(){
+  goToChangePassword() {
     this.router.navigate(['change-password']);
   }
 
