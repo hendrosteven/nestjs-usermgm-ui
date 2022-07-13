@@ -5,3 +5,4 @@ export const OAUTH_GOOGLE_LOCAL: string = '841779677180-9d3babbiqpbqrhavvndflkhm
 export const OAUTH_GOOGLE_HEROKU_APPS_NAME = 'angular-heroku';
 export const OAUTH_GOOGLE_LOCAL_APPS_NAME: string = 'Angular-demo'
 export const OAUTH_FB_HEROKU: string = '744637323525921'
+export const OAUTH_FB_LOCAL: string = '570556121285669'

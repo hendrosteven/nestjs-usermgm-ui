@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
   }
 
   loginWithFacebook(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID)
   }
 
 }

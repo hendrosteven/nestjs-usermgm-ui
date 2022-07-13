@@ -82,9 +82,9 @@
                     <tr *ngFor="let user of users">
                         <td>{{ user.fullName }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.signUpDate }}</td>
+                        <td>{{ user.signUpDate | date:'long' }}</td>
                         <td>{{ user.numberOfLogin }}</td>
-                        <td>{{ user.lastSession?.createdAt }}</td>                       
+                        <td>{{ user.lastSession?.createdAt | date:'long' }}</td>                       
                     </tr>
                     
                 </tbody>

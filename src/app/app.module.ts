@@ -19,7 +19,7 @@ import { ResendComponent } from './pages/resend/resend.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule, } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
-import { OAUTH_GOOGLE_HEROKU, OAUTH_GOOGLE_HEROKU_APPS_NAME, OAUTH_FB_HEROKU } from './utils/app-const';
+import { OAUTH_GOOGLE_HEROKU, OAUTH_GOOGLE_HEROKU_APPS_NAME, OAUTH_FB_HEROKU, OAUTH_FB_LOCAL } from './utils/app-const';
 
 
 export const AppRoutes: any = [
