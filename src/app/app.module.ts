@@ -17,9 +17,9 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { VerifyComponent } from './pages/verify/verify.component';
 import { ResendComponent } from './pages/resend/resend.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
-import { SocialAuthServiceConfig, SocialLoginModule, } from 'angularx-social-login';
+import { FacebookLoginProvider, SocialAuthServiceConfig, SocialLoginModule, } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
-import { OAUTH_GOOGLE_HEROKU, OAUTH_GOOGLE_HEROKU_APPS_NAME } from './utils/app-const';
+import { OAUTH_GOOGLE_HEROKU, OAUTH_GOOGLE_HEROKU_APPS_NAME, OAUTH_FB_HEROKU } from './utils/app-const';
 
 
 export const AppRoutes: any = [
@@ -87,6 +87,10 @@ export const AppRoutes: any = [
             plugin_name: OAUTH_GOOGLE_HEROKU_APPS_NAME
           }),
         },
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider(OAUTH_FB_HEROKU),
+        }
       ],
       onError: (err)=>{
         console.log(err);
