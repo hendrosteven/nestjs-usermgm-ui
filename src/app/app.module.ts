@@ -17,6 +17,10 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { VerifyComponent } from './pages/verify/verify.component';
 import { ResendComponent } from './pages/resend/resend.component';
 import { StatisticsComponent } from './pages/statistics/statistics.component';
+import { SocialAuthServiceConfig, SocialLoginModule, } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+import { OAUTH_GOOGLE_HEROKU, OAUTH_GOOGLE_HEROKU_APPS_NAME } from './utils/app-const';
+
 
 export const AppRoutes: any = [
   {
@@ -26,8 +30,8 @@ export const AppRoutes: any = [
     children: [
       { path: "home", component: HomeComponent },
       { path: "edit-name", component: EditNameComponent },
-      { path: "change-password", component: ChangePasswordComponent},
-      { path: "statistics", component: StatisticsComponent}
+      { path: "change-password", component: ChangePasswordComponent },
+      { path: "statistics", component: StatisticsComponent }
     ]
   },
   {
@@ -69,8 +73,26 @@ export const AppRoutes: any = [
     NgxSpinnerModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(AppRoutes),
+    SocialLoginModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, {
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(OAUTH_GOOGLE_HEROKU,{
+            scope: 'email',
+            plugin_name: OAUTH_GOOGLE_HEROKU_APPS_NAME
+          }),
+        },
+      ],
+      onError: (err)=>{
+        console.log(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

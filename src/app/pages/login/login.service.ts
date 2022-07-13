@@ -29,6 +29,19 @@ export class LoginService {
           .pipe(catchError(errorHandle));
   }
 
+  socialLogin(_email: string, _fullName: string, _provider: string): Observable<any> {
+    
+    let data = {
+        email: _email,
+        fullName: _fullName,
+        provider: _provider
+    }
+    console.log(data);
+
+    return this.http.post(BASE_URL+'/auth/social/signin', data, this.httpOptions)
+        .pipe(catchError(errorHandle));
+}
+
   saveAccessToken(session: any) {
     console.log(session);
     localStorage.setItem("ACCESS_TOKEN", JSON.stringify(session));
